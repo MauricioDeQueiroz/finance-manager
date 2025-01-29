@@ -49,7 +49,3 @@ const form = {
     passwordRequiredError: () => document.getElementById("password-required-error"),
     recoverPasswordButton: () => document.getElementById("recover-password-button"),
 } 
-
-function validateEmail(email) {
-    return /\S+@\S+\.\S+/.test(email);
-}
