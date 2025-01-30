@@ -12,7 +12,7 @@
 
 <body>
     <form>
-    
+
         <div>
             <div><label>Email</label></div>
             <input type="email" name="email" id="email" placeholder="seu@email.com" onchange="onChangeEmail()" />
@@ -30,7 +30,7 @@
                 <button type="button" class="clear" id="recover-password-button" disabled="true">Recuperar
                     senha</button>
             </div>
-            
+
             <div>
                 <button type="button" class="solid" id="login-button" disabled="true" onclick="login()">Entrar</button>
             </div>
@@ -42,6 +42,28 @@
     </form>
     <script src="index.js"></script>
     <script src="validations.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-auth-compat.js"></script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCw2RmAGrq1tHK44R_6CMmd4V-pN-DF_Ew",
+            authDomain: "finance-manager-9e98c.firebaseapp.com",
+            projectId: "finance-manager-9e98c",
+            storageBucket: "finance-manager-9e98c.firebasestorage.app",
+            messagingSenderId: "828842599778",
+            appId: "1:828842599778:web:d5621393eecf9686f2f83b"
+        };
+        firebase.initializeApp(firebaseConfig);
+
+        console.log('antes');
+        firebase.auth().signInWithEmailAndPassword("EmailUserFirebase", "SenhaUserFirebase").then(response => {
+            console.log('success', response)
+        }).catch(error => {
+            console.log('erro', error)
+        });
+        console.log('depois');
+    </script>
 
 </body>
 
