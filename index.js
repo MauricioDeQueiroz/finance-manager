@@ -6,20 +6,38 @@ function onChangeEmail() {
 function onChangePassword() {
     toggleButtonsDisable();
     togglePasswordErrors();
-} 
-
-function login(){
-    window.location.href = "pages/home/home.html";
 }
 
-function register(){
+function login() {
+    showLoading();
+    firebase.auth().signInWithEmailAndPassword(form.email().value, form.password().value
+    ).then(response => {
+        hideLoading();
+        window.location.href = "pages/home/home.html";
+    }).catch(error => {
+        hideLoading();
+        alert(getErrorMessage(error));
+    });
+
+}
+
+function getErrorMessage(error) {
+    if (error.code == "auth/invalid-credential") {
+        return "Usuário não encontrado";
+    } else {
+        return error.message;
+    }
+}
+
+
+function register() {
     window.location.href = "pages/register/register.html";
 }
 
 function toggleEmailErrors() {
     const email = form.email().value;
     form.emailRequiredError().style.display = email ? "none" : "block";
-    
+
     form.emailInvalidError().style.display = validateEmail(email) ? "none" : "block";
 }
 

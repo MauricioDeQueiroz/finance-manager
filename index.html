@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Controle de Gastos</title>
+
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="global.css">
 
 </head>
 
-<body>
+<body class="centralize">
     <form>
 
         <div>
@@ -40,29 +41,24 @@
             </div>
 
     </form>
+
     <script src="index.js"></script>
     <script src="validations.js"></script>
+    <script src="loading.js"></script>
+
     <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-auth-compat.js"></script>
 
     <script>
         const firebaseConfig = {
-            apiKey: "AIzaSyCw2RmAGrq1tHK44R_6CMmd4V-pN-DF_Ew",
-            authDomain: "finance-manager-9e98c.firebaseapp.com",
-            projectId: "finance-manager-9e98c",
-            storageBucket: "finance-manager-9e98c.firebasestorage.app",
-            messagingSenderId: "828842599778",
-            appId: "1:828842599778:web:d5621393eecf9686f2f83b"
+            apiKey: "YOUR API KEY",
+            authDomain: "finance-manager-9e98.firebaseapp.com",
+            projectId: "finance-manager-9e98",
+            storageBucket: "finance-manager-9e98.firebasestorage.app",
+            messagingSenderId: "82884259977",
+            appId: "1:828842599778:web:d5621393eecf9686f2f83"
         };
         firebase.initializeApp(firebaseConfig);
-
-        console.log('antes');
-        firebase.auth().signInWithEmailAndPassword("EmailUserFirebase", "SenhaUserFirebase").then(response => {
-            console.log('success', response)
-        }).catch(error => {
-            console.log('erro', error)
-        });
-        console.log('depois');
     </script>
 
 </body>
